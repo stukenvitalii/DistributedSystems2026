@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Клиент–серверная форма</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" href="/styles.css">
+</head>
+<body>
+<section class="panel">
+    <h1>Клиент → Сервер: отправка запроса</h1>
+    <p>Эта форма моделирует классическое взаимодействие, где браузер инициирует запрос, а сервер отвечает обработанными данными.</p>
+    <form th:action="@{/feedback}" th:object="${submission}" method="post" class="form">
+        <label>Имя
+            <input type="text" th:field="*{senderName}" placeholder="Введите имя">
+        </label>
+        <div class="error" th:if="${#fields.hasErrors('senderName')}" th:errors="*{senderName}"></div>
+
+        <label>Сообщение
+            <textarea th:field="*{payload}" rows="3" placeholder="Что передадим серверу?"></textarea>
+        </label>
+        <div class="error" th:if="${#fields.hasErrors('payload')}" th:errors="*{payload}"></div>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <div class="success" th:if="${lastSubmission}" th:text="${'Сервер принял запрос #' + lastSubmission.id + ' от ' + lastSubmission.senderName}"></div>
+</section>
+<section class="panel">
+    <h2>История ответов сервера</h2>
+    <p>Все обработанные запросы сортируются по времени поступления. Список хранится в памяти сервера.</p>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Сообщение</th>
+            <th>Время (UTC)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="record : ${records}">
+            <td th:text="${record.id}"></td>
+            <td th:text="${record.senderName}"></td>
+            <td th:text="${record.payload}"></td>
+            <td th:text="${#temporals.format(record.receivedAt, 'HH:mm:ss dd.MM.yyyy')}"></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(records)}">
+            <td colspan="4">Запросы ещё не отправлялись</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

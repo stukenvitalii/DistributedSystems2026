@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.stukenvitalii</groupId>
-        <artifactId>lab1</artifactId>
+        <artifactId>lab-client-server-vs-p2p</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 

@@ -2,18 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>4.0.2</version>
         <relativePath/>
     </parent>
+
     <groupId>com.stukenvitalii</groupId>
-    <artifactId>lab1</artifactId>
+    <artifactId>distributed-systems-labs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>lab1</name>
-    <description>Distributed systems lab</description>
+    <name>Distributed Systems Labs</name>
+    <description>Aggregator for all distributed systems labs</description>
 
     <properties>
         <java.version>21</java.version>
@@ -21,7 +23,6 @@
     </properties>
 
     <modules>
-        <module>spring-client-server</module>
-        <module>p2p-chat</module>
+        <module>lab1</module>
     </modules>
 </project>
