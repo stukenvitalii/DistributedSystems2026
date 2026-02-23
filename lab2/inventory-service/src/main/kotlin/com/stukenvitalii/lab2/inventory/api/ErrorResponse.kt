@@ -1,0 +1,12 @@
+package com.stukenvitalii.lab2.inventory.api
+
+import java.time.OffsetDateTime
+
+data class ErrorResponse(
+    val timestamp: OffsetDateTime = OffsetDateTime.now(),
+    val status: Int,
+    val error: String,
+    val message: String,
+    val path: String,
+)
+

@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS items (
+    id BIGSERIAL PRIMARY KEY,
+    sku VARCHAR(64) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    quantity INTEGER NOT NULL CHECK (quantity >= 0)
+);
+

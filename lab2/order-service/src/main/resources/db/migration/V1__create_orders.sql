@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS orders (
+    id BIGSERIAL PRIMARY KEY,
+    external_id VARCHAR(40) NOT NULL UNIQUE,
+    sku VARCHAR(64) NOT NULL,
+    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    item_name VARCHAR(255) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
