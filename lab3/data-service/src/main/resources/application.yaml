@@ -1,0 +1,30 @@
+server:
+  port: 8082
+  ssl:
+    enabled: true
+    key-store: classpath:tls/data-keystore.p12
+    key-store-password: changeit
+    key-store-type: PKCS12
+    key-alias: data-service
+    enabled-protocols: TLSv1.2,TLSv1.3
+
+spring:
+  application:
+    name: data-service
+
+security:
+  jwt:
+    secret: ${SECURITY_JWT_SECRET:this-is-a-demo-secret-key-which-is-long-enough-123456}
+    issuer: auth-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    root: INFO
+    com.stukenvitalii.lab3.data: DEBUG
+

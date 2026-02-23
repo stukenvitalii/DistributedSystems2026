@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+# Lab3 security artifacts
+*.p12
+lab3/**/tls/

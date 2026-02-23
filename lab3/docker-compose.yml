@@ -1,0 +1,32 @@
+services:
+  auth-service:
+    build:
+      context: ..
+      dockerfile: lab3/auth-service/Dockerfile
+    environment:
+      SECURITY_JWT_SECRET: ${SECURITY_JWT_SECRET:-this-is-a-demo-secret-key-which-is-long-enough-123456}
+    ports:
+      - "8081:8081"
+    healthcheck:
+      test: [ "CMD", "curl", "-k", "https://localhost:8081/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  data-service:
+    build:
+      context: ..
+      dockerfile: lab3/data-service/Dockerfile
+    environment:
+      SECURITY_JWT_SECRET: ${SECURITY_JWT_SECRET:-this-is-a-demo-secret-key-which-is-long-enough-123456}
+    depends_on:
+      auth-service:
+        condition: service_healthy
+    ports:
+      - "8082:8082"
+    healthcheck:
+      test: [ "CMD", "curl", "-k", "https://localhost:8082/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
