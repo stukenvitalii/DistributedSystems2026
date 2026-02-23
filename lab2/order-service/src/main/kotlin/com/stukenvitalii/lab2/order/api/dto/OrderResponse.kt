@@ -1,7 +1,7 @@
 package com.stukenvitalii.lab2.order.api.dto
 
 import com.stukenvitalii.lab2.order.domain.OrderStatus
-import java.time.OffsetDateTime
+import java.time.LocalDateTime
 
 data class OrderResponse(
     val id: Long,
@@ -10,6 +10,6 @@ data class OrderResponse(
     val quantity: Int,
     val itemName: String,
     val status: OrderStatus,
-    val createdAt: OffsetDateTime,
+    val createdAt: LocalDateTime,
 )
 

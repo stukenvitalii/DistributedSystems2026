@@ -28,7 +28,7 @@ class InventoryClient(
             .retrieve()
             .onStatus({ !it.is2xxSuccessful }) { response ->
                 val status = response.statusCode()
-                response.bodyToMono(String::class.java)
+                response.bodyToMono<String>()
                     .defaultIfEmpty(status.asReason())
                     .flatMap { body -> Mono.error(InventoryServiceException(status, body)) }
             }

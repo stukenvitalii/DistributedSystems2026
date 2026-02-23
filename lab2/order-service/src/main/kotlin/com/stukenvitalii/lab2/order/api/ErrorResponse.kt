@@ -1,9 +1,9 @@
 package com.stukenvitalii.lab2.order.api
 
-import java.time.OffsetDateTime
+import java.time.LocalDateTime
 
 data class ErrorResponse(
-    val timestamp: OffsetDateTime = OffsetDateTime.now(),
+    val timestamp: LocalDateTime = LocalDateTime.now(),
     val status: Int,
     val error: String,
     val message: String,

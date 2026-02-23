@@ -9,18 +9,16 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter
 
 @Configuration
-class JwtAuthenticationConverterConfig {
+class JwtAuthenticationConverter : Converter<Jwt, AbstractAuthenticationToken> {
 
-    @Bean
-    fun jwtAuthenticationConverter(): Converter<Jwt, out AbstractAuthenticationToken> {
-        val authoritiesConverter = JwtGrantedAuthoritiesConverter().apply {
-            setAuthoritiesClaimName("roles")
-            setAuthorityPrefix("")
-        }
-        return Converter { jwt ->
-            val authorities = authoritiesConverter.convert(jwt) ?: emptyList()
-            JwtAuthenticationToken(jwt, authorities, jwt.subject)
-        }
+    private val authoritiesConverter = JwtGrantedAuthoritiesConverter().apply {
+        setAuthoritiesClaimName("roles")
+        setAuthorityPrefix("")
+    }
+
+    override fun convert(source: Jwt): AbstractAuthenticationToken {
+        val authorities = authoritiesConverter.convert(source) ?: emptyList()
+        return JwtAuthenticationToken(source, authorities, source.subject)
     }
 }
 

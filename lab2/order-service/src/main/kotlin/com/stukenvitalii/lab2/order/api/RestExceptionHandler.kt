@@ -25,7 +25,7 @@ class RestExceptionHandler {
 
     @ExceptionHandler(InventoryServiceException::class)
     fun handleInventory(ex: InventoryServiceException, request: HttpServletRequest): ResponseEntity<ErrorResponse> =
-        buildResponse(ex.status, ex.message ?: "Inventory error", request)
+        buildResponse(ex.status, ex.message, request)
 
     @ExceptionHandler(BindException::class, MethodArgumentNotValidException::class)
     fun handleValidation(ex: Exception, request: HttpServletRequest): ResponseEntity<ErrorResponse> =
