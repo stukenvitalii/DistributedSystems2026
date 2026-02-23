@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AmplicodePersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="inventory-service" name="Default">
+        <packages>
+          <package value="com.stukenvitalii.lab2.inventory" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="order-service" name="Default">
+        <packages>
+          <package value="com.stukenvitalii.lab2.order" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>
