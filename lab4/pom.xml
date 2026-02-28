@@ -6,16 +6,15 @@
         <groupId>com.stukenvitalii</groupId>
         <artifactId>distributed-systems-labs</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>lab1</artifactId>
-    <packaging>pom</packaging>
-    <name>lab-client-server-vs-p2p</name>
-    <description>Distributed systems lab</description>
 
+    <artifactId>lab4</artifactId>
+    <packaging>pom</packaging>
+    <name>Lab 4 - Data Replication</name>
+    <description>Leaderless replication with vector clocks and conflict resolution</description>
 
     <modules>
-        <module>spring-client-server</module>
-        <module>p2p-chat</module>
+        <module>replication-node</module>
     </modules>
 </project>
+
