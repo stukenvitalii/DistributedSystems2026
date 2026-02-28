@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.stukenvitalii</groupId>
+        <artifactId>distributed-systems-labs</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>lab5</artifactId>
+    <packaging>pom</packaging>
+    <name>Lab 5 - Fault Tolerance and RPC</name>
+    <description>Mini RPC service with idempotency, retry client, and pub/sub message broker</description>
+
+    <modules>
+        <module>rpc-service</module>
+    </modules>
+</project>
+
